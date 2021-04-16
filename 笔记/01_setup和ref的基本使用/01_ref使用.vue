@@ -17,7 +17,7 @@ export default defineComponent({
         // ref一般用来定义一个基本类型的响应式数据
         let number = ref(0)
         // console.log(number) // 是一个对象
-        function increase() {
+        let increase = () => {
             number.value++
         }
         return {
