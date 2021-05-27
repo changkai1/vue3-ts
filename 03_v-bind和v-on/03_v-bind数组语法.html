@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app"></div>
+    <template id="my-app">
+        <!-- 1、数组语法,绑定字符串/变量/对象 -->
+        <h2 :class="['abc', title, {active: isActive}]">小甜甜</h2>
+    </template>
+</body>
+</html>
+<script>
+    const app = {
+        template: "#my-app",
+        data() {
+            return {
+                message: "vue2",
+                title: "cba",
+                isActive: true
+            }
+        }
+    }
+    Vue.createApp(app).mount("#app")
+</script>

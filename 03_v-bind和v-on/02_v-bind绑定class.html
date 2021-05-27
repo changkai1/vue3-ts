@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+    <style>
+        .active {
+            color: yellowgreen;
+        }
+    </style>
+</head>
+<body>
+    <div id="app"></div>
+    <template id="my-app">
+        <!-- 1、对象语法 {'active': boolean}-->
+        <h2 class="abc cba" :class="{'active': isActive, title: true}">呵呵呵</h2>
+
+        <!-- 2、将对象放在属性中 -->
+        <h2 class="abc cba" :class="classObj">哈哈哈</h2>
+
+        <button @click="toggle">切换</button>
+    </template>
+</body>
+</html>
+<script>
+    const app = {
+        template: "#my-app",
+        data() {
+            return {
+                isActive: true,
+                classObj: {
+                    active: true,
+                    title: true
+                }
+            }
+        },
+        methods: {
+            toggle() {
+                this.isActive = !this.isActive
+            }
+        }
+    }
+    Vue.createApp(app).mount("#app")
+</script>
