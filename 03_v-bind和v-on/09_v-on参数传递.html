@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app"></div>
+    <template id="my-app">
+        <!-- 1、传递多个参数及事件对象 $event可以获取到事件发生时的事件对象-->
+        <button @click="handlerClick($event, 'codeWhy', 18)">按钮1</button>
+
+        <!-- 2、默认传递事件对象 -->
+        <button @click="handlerClick2">按钮2</button>
+
+    </template>
+</body>
+</html>
+<script>
+    const app = {
+        template: "#my-app",
+        data() {
+            return {
+                message: "vue2"
+            }
+        },
+        methods: {
+            handlerClick($event, name, age) {
+                console.log("$event", $event)
+                console.log("name", name)
+                console.log("age", age)
+            },
+            handlerClick2(event) {
+                console.log("event", event)
+            }
+        }
+    }
+    Vue.createApp(app).mount("#app")
+</script>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+    <style>
+        .area {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+        .area1 {
+            width: 200px;
+            height: 200px;
+            background-color: yellowgreen;
+        }
+    </style>
+</head>
+<body>
+    <div id="app"></div>
+    <template id="my-app">
+        <button @click="handlerClick">按钮</button>
+        <div class="area" @mousemove="handleMouseMove"></div>
+
+        <!-- 绑定对象,绑定多个事件 -->
+        <div class="area1" v-on="{click: handlerClick, mousemove: handleMouseMove}"></div>
+    </template>
+</body>
+</html>
+<script>
+    const app = {
+        template: "#my-app",
+        data() {
+            return {
+                message: "vue2"
+            }
+        },
+        methods: {
+            handlerClick() {
+                console.log("按钮点击了")
+            },
+            handleMouseMove() {
+                console.log("鼠标移到了")
+            }
+        }
+    }
+    Vue.createApp(app).mount("#app")
+</script>
