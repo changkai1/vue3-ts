@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app"></div>
+    <template id="my-app">
+        <h2>{{ info.name }}</h2>
+        <button @click="changeInfo">改变info</button>
+        <button @click="changeInfoName">改变info的name</button>
+    </template>
+</body>
+</html>
+<script>
+    const app = {
+        template: "#my-app",
+        data() {
+            return {
+                info: {
+                    name: "小甜甜",
+                    age: 18
+                }
+            }
+        },
+        methods: {
+            changeInfo() {
+                this.info = {name: "小明"}
+            },
+            changeInfoName() {
+                this.info.name = "小红"
+            }
+        },
+        watch: {
+            // 默认情况下只能侦听到数据本身的变化
+            // info(newVal, oldVal) {
+            //     console.log("newVal", newVal)
+            //     console.log("oldVal", oldVal)
+            // },
+
+            // 深度侦听--立即执行
+            // info: {
+            //     handler(newVal, oldVal) {
+            //         console.log("newVal", newVal)
+            //         console.log("oldVal", oldVal)
+            //     },
+            //     deep: true, // 深度侦听
+            //     // immediate: true // 立即执行
+            // }
+
+            // 侦听对象的某个属性
+            "info.name"(newName, oldName) {
+                console.log("newName", newName)
+                console.log("oldName", oldName)
+            }
+        },
+        created () {
+            // 侦听的另一种写法,这种写法可以手动取消侦听，watch里的侦听不可以取消
+            const unwatch = this.$watch('info', (newVal, oldVal) => {
+                console.log("createdNewVal", newVal)
+                console.log("createdOldVal", oldVal)
+            },
+            {
+                deep: true,
+                immediate: true
+            })
+        }
+    }
+    Vue.createApp(app).mount("#app")
+</script>
