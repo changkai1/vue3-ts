@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+</head>
+<body>
+    <div id="app"></div>
+    <template id="my-app">
+        <button @click="changeFullName">修改fullName</button>
+        <h2>{{ fullName }}</h2>
+    </template>
+</body>
+</html>
+<script>
+    const app = {
+        template: "#my-app",
+        data() {
+            return {
+                message: "vue2",
+                firstName: "勒布朗",
+                lastName: "詹姆斯"
+            }
+        },
+        computed: {
+            fullName: {
+                get() {
+                    return this.firstName + "_" + this.lastName;
+                },
+                set(newVal) {
+                    console.log(newVal)
+                    let names = newVal.split("_")
+                    this.firstName = names[0];
+                    this.lastName = names[1];
+                }
+            }
+        },
+        methods: {
+            changeFullName() {
+                this.fullName = "科比_布莱恩特"
+            }
+        }
+    }
+    Vue.createApp(app).mount("#app")
+</script>
