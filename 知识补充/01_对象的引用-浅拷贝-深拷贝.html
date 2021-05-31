@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    // 1、对象的引用赋值 11:20  31分钟
+    // const info1 = {
+    //    name: "小甜甜"
+    // }
+    // const obj1 = info1;
+    // info1.name = "大甜甜";
+    // console.log(obj1.name)
+
+    // 2、对象的浅拷贝
+    // const info2 = {
+    //     name: "小明",
+    //     age: 18,
+    //     friend: {
+    //         name: "小红",
+    //         age: 20
+    //     }
+    // }
+    // // friend这一层复制的是引用地址
+    // const obj2 = Object.assign({}, info2)
+    
+    // info2.age = 19
+    // info2.friend.age = 21
+
+    // console.log(obj2.age) // 18
+    // console.log(obj2.friend.age) // 21
+
+    // 3、对象的深拷贝
+    const info2 = {
+        name: "小明",
+        age: 18,
+        friend: {
+            name: "kobe",
+            age: 20
+        }
+    }
+    const obj2 = JSON.parse(JSON.stringify(info2)) // 深拷贝
+    info2.friend.name = "james"
+    console.log(obj2.friend.name) // kobe
+</script>
