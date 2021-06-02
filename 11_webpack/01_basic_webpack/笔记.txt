@@ -1,0 +1,10 @@
+1、开发依赖  在开发环境使用的依赖
+   npm install xxx --save-dev  简写  npm install xxx -D
+2、使用局部webpack打包命令
+    2.1、第一种方式
+        npx webpack
+    2.2、第二种方式
+        修改package.json文件中的scripts
+        "scripts": {
+            "build": "webpack" // 使用当前文件中的webpack
+        }
