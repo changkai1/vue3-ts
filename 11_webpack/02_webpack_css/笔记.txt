@@ -18,3 +18,12 @@
         "scripts": {
             "build": "webpack --config why.config.js"
         }
+
+4、postcss
+        npm install postcss postcss-cli -D
+
+        npm install autoprefixer -D 自动添加浏览器前缀
+
+        npm install postcss-preset-env -D 可以把css转成现代浏览器认识的css，集成了autoprefixer
+        
+        npx postcss --use autoprefixer -o demo.css test.css
