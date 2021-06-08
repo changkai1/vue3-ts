@@ -55,14 +55,50 @@ module.exports = {
                     "less-loader"
                 ]
             },
-            // 图片处理
+            // 图片处理 file-loader 不能转base62
+            // {
+            //     test: /\.(jpg|jpeg|png|gif|svg)$/,
+            //     use: {
+            //         loader: "file-loader",
+            //         options: {
+            //             // outputPath: "img", // 输出后图片放在 img文件夹
+            //             // name: "[name]_[hash:8].[ext]", // 打包后图片名字
+
+            //             // 简写放在 img文件夹
+            //             name: "img/[name]_[hash:8].[ext]"
+
+            //         }
+            //     }
+            // },
+
+            // 图片处理 url-loader 可以根据图片大小转base64
+            // {
+            //     test: /\.(jpg|jpeg|png|gif|svg)$/,
+            //     use: {
+            //         loader: "url-loader",
+            //         options: {
+            //             // outputPath: "img", // 输出后图片放在 img文件夹
+            //             // name: "[name]_[hash:8].[ext]", // 打包后图片名字
+
+            //             // 简写放在 img文件夹
+            //             name: "img/[name]_[hash:8].[ext]",
+            //             limit: 100 * 1024, // 小于limit的图片进行base64编码，大于limit的图片不进行转码
+            //         }
+            //     }
+            // },
+
+            // 图片处理 webpack5 
             {
                 test: /\.(jpg|jpeg|png|gif|svg)$/,
-                use: [
-                    {
-                        loader: "file-loader"
+                type: "asset",
+                generator: {
+                    filename: "img/[name]_[hash:6][ext]" // 打包的图片输出到 img 文件夹，及修改图片名称
+                },
+                parser: {
+                    dataUrlCondition: {
+                        maxSize: 100 * 1024 // 设置图片转base64的条件
                     }
-                ]
+                }
             }
         ]
     }
