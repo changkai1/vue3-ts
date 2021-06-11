@@ -71,6 +71,17 @@ module.exports = {
             //     }
             // },
 
+            // 字体图标处理 file-loader 
+            // {
+            //     test: /\.(eot|ttf|woff|woff2)$/,
+            //     user: {
+            //         loader: "file-loader",
+            //         options: {
+            //             name: "font/[name]_[hash:6].[ext]"
+            //         }
+            //     }
+            // },
+
             // 图片处理 url-loader 可以根据图片大小转base64
             // {
             //     test: /\.(jpg|jpeg|png|gif|svg)$/,
@@ -98,6 +109,15 @@ module.exports = {
                     dataUrlCondition: {
                         maxSize: 100 * 1024 // 设置图片转base64的条件
                     }
+                }
+            },
+
+            // 字体图标处理 webpack5
+            {
+                test: /\.(eot|ttf|woff|woff2)$/,
+                type: "asset/resource",
+                generator: {
+                    filename: "font/[name]_[hash:6][ext]" // 打包的图片输出到 font 文件夹，及修改图片名称
                 }
             }
         ]
