@@ -3,7 +3,10 @@ const path = require("path");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin")
 const HtmlWebpackPlugin = require("html-webpack-plugin")
 const { DefinePlugin } = require("webpack")
+const CopyWebpackPlugin = require("copy-webpack-plugin")
 module.exports = {
+    mode: "development", // 设置生产环境打包还是开发环境打包  开发development  生产production
+    devtool: "source-map", // 建立js映射文件，方便调试代码和错误
     // 入口
     entry: "./src/main.js",
     output: {
@@ -133,6 +136,20 @@ module.exports = {
         }),
         new DefinePlugin({
             BASE_URL: "'/.'"
+        }),
+        new CopyWebpackPlugin({
+            patterns: [
+                {
+                    from: "public", // 复制哪个文件夹
+                    to: "./", // 复制到build文件夹什么地方 "./"是复制到build文件下
+                    globOptions: {
+                        ignore: [ // 忽略文件
+                            "**/index.html"
+                        ]
+                    }
+
+                }
+            ]
         })
     ]
 }

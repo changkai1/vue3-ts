@@ -18,3 +18,5 @@ let img = document.createElement("img");
 // 图片src引入
 img.src = imgUrl;
 document.body.appendChild(img)
+
+// console.log(content.length)

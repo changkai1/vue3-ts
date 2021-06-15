@@ -31,4 +31,7 @@
         npm install clean-webpack-plugin -D
     5.2、打包后自动生成index.html文件  HtmlWebpackPlugin 
         npm install html-webpack-plugin -D
-    5.3、对BASE_URL配置  DefinePlugin,不需要安装，webpack内置
+    5.3、对BASE_URL配置  
+        DefinePlugin,不需要安装，webpack内置
+    5.4、public文件复制
+        npm install copy-webpack-plugin -D
