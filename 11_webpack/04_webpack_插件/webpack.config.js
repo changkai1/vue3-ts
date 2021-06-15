@@ -1,11 +1,14 @@
 // webpack配置文件
 const path = require("path");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin")
+const HtmlWebpackPlugin = require("html-webpack-plugin")
+const { DefinePlugin } = require("webpack")
 module.exports = {
     // 入口
     entry: "./src/main.js",
     output: {
         path: path.resolve(__dirname, "./build"), // 获取当前文件的路径
-        filename: "bundle.js" // 打包后的文件名
+        filename: "js/bundle.js" // 打包后的文件名
     },
     // 模块配置
     module: {
@@ -121,5 +124,15 @@ module.exports = {
                 }
             }
         ]
-    }
+    },
+    plugins: [
+        new CleanWebpackPlugin(),
+        new HtmlWebpackPlugin({
+            template: "./public/index.html", // index.html 模板配置
+            title: "哈哈哈"
+        }),
+        new DefinePlugin({
+            BASE_URL: "'/.'"
+        })
+    ]
 }

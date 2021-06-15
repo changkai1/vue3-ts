@@ -27,4 +27,8 @@
         npm install postcss-preset-env -D 可以把css转成现代浏览器认识的css，集成了autoprefixer
 
 5、webpack插件
-    
+    5.1、删除dist文件插件 CleanWebpackPlugin
+        npm install clean-webpack-plugin -D
+    5.2、打包后自动生成index.html文件  HtmlWebpackPlugin 
+        npm install html-webpack-plugin -D
+    5.3、对BASE_URL配置  DefinePlugin,不需要安装，webpack内置
