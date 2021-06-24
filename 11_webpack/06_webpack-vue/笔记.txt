@@ -35,6 +35,11 @@
         DefinePlugin,不需要安装，webpack内置
     5.4、public文件复制
         npm install copy-webpack-plugin -D
+    5.5、解析vue文件 vue-loader处理vue2   vue-loader@next 处理vue3
+        依赖@vue/compiler-sfc 还需要安装再次安装它
+        npm install vue-loader@next -D
+        npm install @vue/compiler-sfc -D
+
 
 6、babel
     6.1、@babel/core babel/cli

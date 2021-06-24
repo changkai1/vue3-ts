@@ -1,13 +1,13 @@
+import { createApp } from "vue/dist/vue.esm-bundler"
 import { sum } from "./js/math";
 import "./js/element"
-import { createApp } from "vue/dist/vue.esm-bundler"
+
+import App from "./vue/app.vue"
 const { priceFormat } = require("./js/format")
 
 console.log(sum(10, 20))
 console.log((priceFormat()))
 
-const app = createApp({
-    template: "<h2>vue使用</h2>"
-})
+const app = createApp(App)
 app.mount("#app")
 

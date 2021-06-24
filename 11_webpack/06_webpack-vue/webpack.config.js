@@ -4,6 +4,8 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin")
 const HtmlWebpackPlugin = require("html-webpack-plugin")
 const { DefinePlugin } = require("webpack")
 const CopyWebpackPlugin = require("copy-webpack-plugin")
+// vue文件配置
+const { VueLoaderPlugin } = require("vue-loader/dist/index")
 module.exports = {
     mode: "development", // 设置生产环境打包还是开发环境打包  开发development  生产production
     devtool: "source-map", // 建立js映射文件，方便调试代码和错误
@@ -16,6 +18,7 @@ module.exports = {
     // 模块配置
     module: {
         rules: [
+            // css配置
             {
                 test: /\.css$/, // 正则
                 // 简便写法
@@ -35,6 +38,7 @@ module.exports = {
                     "css-loader"
                 ]
             },
+            // less配置
             {
                 test: /\.less$/,
                 // 简便写法
@@ -60,6 +64,11 @@ module.exports = {
                     "postcss-loader",
                     "less-loader"
                 ]
+            },
+            // vue文件配置
+            {
+                test: /\.vue$/,
+                loader: "vue-loader"
             },
             // 图片处理 file-loader 不能转base62
             // {
@@ -179,6 +188,7 @@ module.exports = {
 
                 }
             ]
-        })
+        }),
+        new VueLoaderPlugin()
     ]
 }
