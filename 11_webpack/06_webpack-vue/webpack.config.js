@@ -173,7 +173,9 @@ module.exports = {
             title: "哈哈哈"
         }),
         new DefinePlugin({
-            BASE_URL: "'/.'"
+            BASE_URL: "'./'",
+            __VUE_OPTIONS_API__: true, // 是否兼容vue2，默认兼容
+            __VUE_PROD_DEVTOOLS__: false // 生产环境是否打开devtool
         }),
         new CopyWebpackPlugin({
             patterns: [
