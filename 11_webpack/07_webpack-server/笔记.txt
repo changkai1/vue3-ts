@@ -1,0 +1,92 @@
+1、开发依赖  在开发环境使用的依赖
+   npm install xxx --save-dev  简写  npm install xxx -D
+2、使用局部webpack打包命令
+    2.1、第一种方式
+        npx webpack
+    2.2、第二种方式
+        npm init
+        修改package.json文件中的scripts
+        
+        "scripts": {
+            "build": "webpack" // 使用当前文件中的webpack
+        }
+3、webpack配置
+    3.1、在webpack.config.js里配置webpack
+    3.2、修改webpack.config.js文件名
+        在package.js文件修改
+
+        "scripts": {
+            "build": "webpack --config why.config.js"
+        }
+
+4、postcss
+        npm install postcss postcss-cli -D
+
+        npm install autoprefixer -D 自动添加浏览器前缀
+
+        npm install postcss-preset-env -D 可以把css转成现代浏览器认识的css，集成了autoprefixer
+
+5、webpack插件
+    5.1、删除dist文件插件 CleanWebpackPlugin
+        npm install clean-webpack-plugin -D
+    5.2、打包后自动生成index.html文件  HtmlWebpackPlugin 
+        npm install html-webpack-plugin -D
+    5.3、对BASE_URL配置  
+        DefinePlugin,不需要安装，webpack内置
+    5.4、public文件复制
+        npm install copy-webpack-plugin -D
+    5.5、解析vue文件 vue-loader处理vue2   vue-loader@next 处理vue3
+        依赖@vue/compiler-sfc 还需要安装再次安装它
+        npm install vue-loader@next -D
+        npm install @vue/compiler-sfc -D
+
+
+6、babel
+    6.1、@babel/core babel/cli
+        npm install @babel/core babel/cli -D
+
+        ES6代码转换命令
+        npx babel demo.js --out-dir dist      demo.js输出到dist文件夹
+        npx babel demo.js --out-file test.js  demo.js文件输出后是test.js文件
+    6.2、箭头函数转换插件
+        npm install @babel/plugin-transform-arrow-functions -D
+        使用：
+        npx babel demo.js --out-file test.js --plugins=@babel/plugin-transform-arrow-functions
+
+    6.3、预设,配置预设可以不再配置别的插件
+        npm install @babel/preset-env -D
+        使用
+        npx babel demo.js --out-file test.js --persets=@babel/preset-env
+
+    6.4、es6转es5 babel-loader，还得需要安装 @babel/core
+        npm install @babel/core -D
+        npm install babel-loader -D
+
+7、vue3安装
+    7.1、npm install vue@next
+    7.2、vue版本
+        vue(.runtime).global(.prod).js
+        通过script或者cdn引入的版本
+
+        vue(.runtime).esm-browser(.prod).js
+        用于通过原生es模块导入使用(在浏览器中通过<script type="module">来使用)
+
+        vue(.runtime).esm-bundler.js
+        用于webpack/rollup等构建工具
+        构建工具默认是vue.runtime.esm-bundler.js
+        如果需要解析模板template，需要手动指定vue.esm.bundler.js
+
+        vue.cjs(.prod).js
+        服务端渲染使用
+        通过require()在node.js中使用
+
+8、修改文件后自动编译
+    8.1、第一种
+        8.1.1、在webpack.config.js文件添加watch: true 或者
+        8.1.2、在package.json文件中配置
+            "scripts": {
+                "build": "webpack --watch"
+            }
+    8.2、第二种
+        安装webpack-dev-server
+        npm install webpack-dev-server -D
