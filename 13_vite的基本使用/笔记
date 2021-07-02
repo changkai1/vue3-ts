@@ -11,7 +11,7 @@
     3.2、安装less
         npm install less -D
 
-   3.3、安装postcss  增加浏览器后缀
+    3.3、安装postcss  增加浏览器后缀
         npm install postcss -D
         需要依赖 postcss-preset-env
         npm install postcss-preset-env
@@ -21,3 +21,19 @@
                 require("postcss-preset-env")
             ]
         }
+    3.4、安装vue
+        npm install vue@next -D
+        vite对vue的支持
+            vue3 单文件组件支持 @vitejs/plugin-vue  依赖 @vue/compiler-sfc 这个插件 npm install @vue/compiler-sfc -D
+            vue3 jsx支持 @vuejs/plugin-vue-jsx
+            vue2 支持  underfin/vite-plugin-vue2
+4、 vite可以直接支持ts语法
+    打包
+    npx vite build
+    打包后预览
+    npx vite preview
+5、vite脚手架
+    安装
+    npm install @vitejs/create-app -g
+    创建vue
+    create-app
