@@ -1,0 +1,2 @@
+1、vue3事件总线需要使用第三方库
+    npm install mitt
