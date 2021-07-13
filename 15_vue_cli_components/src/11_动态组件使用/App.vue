@@ -7,12 +7,20 @@
         </template>
 
         <!-- 动态组件 is="组件名"-->
-        <component
-            :is="currentTab"
-            :name="name"
-            :age="age"
-            @itemClick="itemClick">
-        </component>
+        <!-- 
+            1、keep-alive 属性
+                include: string|RegExp|Array  只有匹配到的组件会被缓存  逗号后面不要加空格
+                exclude: string|RegExp|Array  任何名称匹配到的组件不会被缓存
+                max: number|string  最多可以缓存多少组件实例，一旦达到这个数字，那么缓存组件中最近没有被访问的实例会被销毁
+         -->
+        <keep-alive include="home,about">
+            <component
+                :is="currentTab"
+                :name="name"
+                :age="age"
+                @itemClick="itemClick">
+            </component>
+        </keep-alive>
     </div>
 </template>
 <script>

@@ -7,7 +7,7 @@
 </template>
 <script>
 export default {
-    name: '',
+    name: 'home',
     emits: ["itemClick"],
     props: {
         name: {
