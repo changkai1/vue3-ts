@@ -21,7 +21,17 @@ export default {
         }
     },
     created () {
-        
+        console.log("about created")
+    },
+    unmounted() {
+        console.log("about unmounted")
+    },
+    // 使用keep-alive，还有activated 活跃的  deactivated 不活跃的
+    activated () {
+        console.log("about activated")
+    },
+    deactivated () {
+        console.log("about deactivated")
     }
 }
 </script>
