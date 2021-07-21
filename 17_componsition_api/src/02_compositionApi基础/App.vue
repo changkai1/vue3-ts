@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import Home from "./Home.vue"
+import Home from "./01_setup参数.vue"
 export default {
     components: {
         Home

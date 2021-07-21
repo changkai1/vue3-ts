@@ -11,3 +11,11 @@
             
         }
     })
+3、vue3响应式函数
+    3.1、reactive函数
+        如果想为在setup中定义的数据提供响应式特性，可以使用reactive函数，对传入的类型有限制，传对象或者数组
+        reactive({}) / reactive([])
+        import { reactive } from "vue"
+        const state = reactive({
+            counter: 100
+        })
