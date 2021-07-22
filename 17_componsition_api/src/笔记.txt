@@ -11,11 +11,17 @@
             
         }
     })
-3、vue3响应式函数
-    3.1、reactive函数
-        如果想为在setup中定义的数据提供响应式特性，可以使用reactive函数，对传入的类型有限制，传对象或者数组
-        reactive({}) / reactive([])
-        import { reactive } from "vue"
-        const state = reactive({
-            counter: 100
-        })
+3、reactive判断的API
+    1、isProxy
+        检查对象是否是由 reactive 或 readonly创建的proxy
+    2、isReactive
+        检查对象是都是由 reactive 创建的响应式代理
+        如果该代理是readonly创建的，但是包裹了由 reactive 创建的另一个代理，也会返回true
+    3、isReadonly
+        检查对象是否是由 readonly 创建的只读代理
+    4、toRaw
+        返回reactive 或 readonly 代理的原始对象
+    5、shallowReactive
+        创建一个响应式代理，它跟踪其自身property的响应性，但不执行嵌套对象的深层响应式转换
+    6、shallowReadonly
+        创建一个proxy，使其自身的property为只读，但不执行嵌套对象的深度只读转换
