@@ -11,7 +11,8 @@ import { createApp } from 'vue'
 // import App from './02_compositionApi基础/10_watch使用(watch).vue'
 // import App from './02_compositionApi基础/11_ref使用.vue'
 // import App from './02_compositionApi基础/12_watch监听多个数据.vue'
-import App from './02_compositionApi基础/13_watch深度侦听.vue'
+// import App from './02_compositionApi基础/13_watch深度侦听.vue'
+import App from './03_生命周期钩子/App.vue'
 
 const app = createApp(App)
 // app.mixin({

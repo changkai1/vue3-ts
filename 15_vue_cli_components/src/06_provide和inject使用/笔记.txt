@@ -1,3 +1,5 @@
 1、vue3非父子组件通信
+    provide和inject 
+    允许一个祖先组件向其所有子孙后代注入一个依赖，无论组件层次有多深，并在其上下游关系成立的时间里始终有效
     父组件：provide 传递数据 provide() { return {} }
     子组件：inject 接收数据  inject: []
