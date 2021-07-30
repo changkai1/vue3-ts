@@ -14,7 +14,7 @@ import { createApp } from 'vue'
 // import App from './02_compositionApi基础/13_watch深度侦听.vue'
 // import App from './03_生命周期钩子/App.vue'
 // import App from './04_provid和inject/App.vue'
-import App from './05_compositionApi练习/01_点击按钮数字增加.vue'
+import App from './05_compositionApi练习/01_App.vue'
 
 const app = createApp(App)
 // app.mixin({

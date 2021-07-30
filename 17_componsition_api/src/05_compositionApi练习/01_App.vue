@@ -9,7 +9,7 @@
 
 <script>
 // import { ref, computed } from "vue"
-import useDoubleCounter from "./hooks/useDoubleCounter.js"
+import { useCounter } from "./hooks/index.js"
 export default {
     setup() {
         // let counter = ref(10)
@@ -27,8 +27,8 @@ export default {
         /**
          * hooks使用
         */
-        let { counter, doubleCounter, increment, decrement } = useDoubleCounter()
-        console.log(useDoubleCounter())
+        let { counter, doubleCounter, increment, decrement } = useCounter()
+        console.log(useCounter())
         return {
             counter,
             doubleCounter,
